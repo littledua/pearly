@@ -28,15 +28,11 @@ Pearly là sổ tiền cá nhân của chủ shop (Tiệm Dứa + Pinya Printing
 - Ngày 12/10/2026 chuyển sang PWA và dời dữ liệu qua Supabase. Hồi đó app nằm ở `littledua/pinyaprinting`, thư mục `pearly/` (https://littledua.github.io/pinyaprinting/pearly/).
 - Ngày 22/11/2026 tách sang repo riêng này.
 
-## Việc còn dở (làm theo thứ tự)
-1. Kiểm tra https://littledua.github.io/pearly/ đã chạy chưa. Chủ phải tự bật Pages: Settings, Pages, Deploy from a branch, `main`, `/ (root)`. Claude không bật được vì proxy chặn API Pages.
-2. Khi link mới chạy rồi, trong repo `littledua/pinyaprinting`:
-   - Thay `pearly/index.html` bằng trang tự chuyển sang `https://littledua.github.io/pearly/`.
-   - Thay `pearly/sw.js` bằng bản tự gỡ (xoá cache `pearly-*` rồi unregister) để điện thoại khỏi giữ bản cũ.
-   - Xoá phần còn lại trong `pearly/`.
-   - Sửa dòng nhắc Pearly trong `CLAUDE.md` của repo đó.
-   - Repo đó có quy tắc riêng: làm trên nhánh `claude/...`, `git fetch origin main` trước khi đẩy `main`.
-3. Báo chủ thêm Pearly vào màn hình chính bằng link mới. Không cần đăng nhập lại vì cùng tên miền `littledua.github.io`.
+## Đã xong khi chuyển nhà (22/11/2026)
+- Link mới https://littledua.github.io/pearly/ đã chạy.
+- Repo `littledua/pinyaprinting`: `pearly/` chỉ còn `index.html` (tự chuyển sang link mới) và `sw.js` tự gỡ.
+- Lưu ý: app cũ và app mới **dùng chung tên kho tạm** `pearly-*` trên cùng tên miền. Nên bản tự gỡ chỉ xoá file thuộc `/pinyaprinting/pearly/`, không xoá cả kho, và không đụng localStorage (sổ, outbox, phiên đăng nhập).
+- Chủ cần thêm Pearly vào màn hình chính bằng link mới, xoá biểu tượng cũ. Không cần đăng nhập lại.
 
 ## Quy tắc tính tiền (chủ đã chốt, đừng đổi nếu chưa hỏi)
 - **Số dư ngân hàng** = số dư thật chủ nhập (anchor) + tiền vào − chi trả bằng ngân hàng − trả nợ thẻ/ví − đổi tệ. Khoản quẹt thẻ hay ví trả sau **không** trừ ngân hàng lúc quẹt, chỉ trừ khi trả nợ.
